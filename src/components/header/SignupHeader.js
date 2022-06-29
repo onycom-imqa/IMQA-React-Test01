@@ -2,8 +2,11 @@ import React from 'react'
 import * as styles from './StylesHeader'
 import SignupForm from '../forms/SignupForm'
 import {Link} from 'react-router-dom'
+import {useIMQA} from "imqa-react-sdk";
 const SignupHeader=(props)=> {
+    const IMQARef = useIMQA(); // 삽입
     return (
+        <div ref={IMQARef}>
             <styles.Background>
                 <styles.Container>
                     <Link to="/">
@@ -13,6 +16,7 @@ const SignupHeader=(props)=> {
                 </styles.Container>
                 <SignupForm />
             </styles.Background>
+        </div>
     )
 }
 

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import * as styles from './StylesPlayerCard'
+import {useIMQA} from "imqa-react-sdk";
 
 const PlayerCard=(props)=> {
+    const IMQARef = useIMQA(); // 삽입
     const [showPlayer,setShowPlayer]=useState(false)
     return (
+        <div ref={IMQARef}>
             <styles.Container>
                 <styles.Button onClick={()=>setShowPlayer((showPlayer)=>!showPlayer)}>Play </styles.Button>
                 {
@@ -21,6 +24,7 @@ const PlayerCard=(props)=> {
                     ):null
                 }
             </styles.Container>
+        </div>
     )
 }
 
